@@ -1,0 +1,22 @@
+name: "Build"
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Build firmware
+        uses: xanderhendriks/action-build-stm32cubeide@master
+        with:
+          project-path: '/github/workspace/mouse'
+          project-target: 'all'
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: m2k_fw_450
+          path: mouse/Release/mouse.bin

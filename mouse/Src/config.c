@@ -33,7 +33,7 @@
 static int config_index = -1; // set on first call to read_config
 
 static const Config config_default = {
-	.dpi = (800/100 - 1),
+	.dpi = (450/100 - 1),
 	.flags = 0
 };
 
